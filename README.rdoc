@@ -45,7 +45,8 @@ tada!
 == Tests
 
 I added a few methods to wrap HTTP requests:
-  In the SinatraFakeWebService::TestClient you have the following methods
+
+In the SinatraFakeWebService::TestClient you have the following methods
 
 * get(path)
 * post(path, data, headers, dest)
