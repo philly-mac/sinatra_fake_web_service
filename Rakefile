@@ -26,15 +26,11 @@ rescue LoadError
 end
 
 require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test = add_options(test)
-end
+Rake::TestTask.new(:test) { |test| test = add_options(test) }
 
 begin
   require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test = add_options(test)
-  end
+  Rcov::RcovTask.new { |test| test = add_options(test) }
 rescue LoadError
   task :rcov do
     abort "RCov is not available. In order to run rcov, you must: gem install rcov"
