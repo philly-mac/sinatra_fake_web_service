@@ -53,7 +53,7 @@ In the SinatraFakeWebService::TestClient you have the following methods
 * put(path, data, headers, dest)
 * delete(path, data, headers, dest)
 
-and you can use it like (using the instance of then SinatraFakeWebService that we created before)
+and you can use it like (using the instance of the SinatraFakeWebService that we created before)
 
   test_client = SinatraFakeWebService::TestClient.new(@sinatra_fws)
 
