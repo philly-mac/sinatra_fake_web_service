@@ -37,7 +37,7 @@ and then simply use the familiar sinatra DSL to create methods and responses.
 	end
 
 	@sinatra_fws.put '/awesome' do
-		"yay, i saved the worlds"
+		"yay, i saved the world"
 	end
 
 tada!
@@ -45,11 +45,21 @@ tada!
 == Tests
 
 I added a few methods to wrap HTTP requests:
+  In the SinatraFakeWebService::TestClient you have the following methods
 
-* get_response(path)
-* post_response(path, data, headers, dest)
-* put_response(path, data, headers, dest)
-* delete_response(path, data, headers, dest)
+* get(path)
+* post(path, data, headers, dest)
+* put(path, data, headers, dest)
+* delete(path, data, headers, dest)
+
+and you can use it like (using the instance of then SinatraFakeWebService that we created before)
+
+  test_client = SinatraFakeWebService::TestClient.new(@sinatra_fws)
+
+  test_client.get("/awesome").body                  #=> YAY!!
+  test_client.post("/omglol", "awesome=Whoop").body #=> YAY!! i posted Whoop
+  test_client.put("/awesome", "id=jfk").body        #=> there, i kiiled jfk
+  test_client.delete("/awesome").body               #=> yay, i saved the world
 
 The most important thing to remember, is that you'll have to point your webservice api wrapper (twitter_auth or whatever) to use "localhost" and the fake sinatra app's port, available via a simple getter (#port).
 
