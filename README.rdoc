@@ -1,45 +1,45 @@
-= Sinatra Fake Webservice
+= Sinatra Fake Web Service
 
-SFW provides an easy and simple wrapper for a sinatra application you can use in your tests in order to test/simulate remote API and HTTP calls and responses.
+Sinatra Fake Web Service provides an easy and simple wrapper for a sinatra application you can use in your tests in order to test/simulate remote API and HTTP calls and responses.
 
-== Why shouldn't i use FakeWeb?
+== Why shouldn't I just use FakeWeb?
 
-FakeWeb is awesome, but it allows you only to register *one* response per url, although in some cases you might need more than one response per url depend on your usage for example: testing an XMLRPC service or a WSDL that both might have only one url and respond based on parameters.
+FakeWeb is awesome, but it only allows you to register *one* response per url, although in some cases you might need more than one response per url depending on your usage for example: testing an XMLRPC service or a WSDL that both might have only one url and respond differently based on parameters.
 
 == Installation
 
-Command line:
-	sudo gem install sinatra_fake_webservice
+In bundler (0.9.x) add this line to your .gemfile:
 
-Or in bundler (0.9.x) add this line to your .gemfile:
-
-	gem 'sinatra_fake_webservice', :group => :test
-
+	gem 'sinatra_fake_web_service', :git => git@github.com:philly-mac/sinatra_fake_web_service.git, :group => :test
 
 == Usage
 
-First you'll need to create a SinatraWebService instance that can accept +:host+ and +:port+ options:
+First you'll need to create a SinatraFakeWebService instance that can accept +:host+ and +:port+ options:
 
-	@fakews = SinatraWebService.new :host => 'localhost', :port => 7000
+	@sinatra_fws = SinatraFakeWebService.new :host => 'localhost', :port => 7000
+
+Then you will need to execute the run! method to start the service
+
+	@sinatra_fws.run!
 
 and then simply use the familiar sinatra DSL to create methods and responses.
 
-	@fakews.get '/awesome' do
+	@sinatra_fws.get '/awesome' do
 		"YAY!!"
 	end
 
-	@fakews.post '/omglol' do
+	@sinatra_fws.post '/omglol' do
 		"YAY!! i posted #{params[:awesome]}"
 	end
 
-	@fakews.delete '/awesome' do
+	@sinatra_fws.delete '/awesome' do
 		"there, i kiiled #{params[:id]}"
 	end
-	
-	@fakews.put '/awesome' do
+
+	@sinatra_fws.put '/awesome' do
 		"yay, i saved the worlds"
 	end
-	
+
 tada!
 
 == Tests
@@ -55,7 +55,7 @@ The most important thing to remember, is that you'll have to point your webservi
 
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
@@ -67,3 +67,4 @@ The most important thing to remember, is that you'll have to point your webservi
 == Copyright
 
 Copyright (c) 2010 Elad Meidar. See LICENSE for details.
+

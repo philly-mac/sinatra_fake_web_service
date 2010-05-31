@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{sinatra_fake_webservice}
+  s.name = %q{sinatra_fake_web_service}
   s.version = "0.9.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Elad Meidar"]
-  s.date = %q{2010-03-03}
+  s.authors = ["Philip MacIver"]
+  s.date = %q{2010-05-31}
   s.description = %q{FakeWeb allows you to fake a response from a specific url, this gem intends to give developers the option to allow several responses from the same url based on parameters (ex: WSDL)}
-  s.email = %q{elad@nautilus6.com}
+  s.email = %q{philip@ivercore.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -23,21 +23,21 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/sinatra_webservice.rb",
+     "lib/sinatra_fake_web_service.rb",
      "metal/sinatra_stem.rb",
      "sinatra.log",
      "sinatra_fake_webservice.gemspec",
      "test/helper.rb",
-     "test/test_sinatra_fake_webservice.rb"
+     "test/sinatra_fake_web_service_test.rb"
   ]
-  s.homepage = %q{http://github.com/eladmeidar/sinatra_fake_webservice}
+  s.homepage = %q{http://github.com/philly-mac/sinatra_fake_web_service}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{use a sinatra application in your Rails test environment to fake a remote web service that needs more magic than Fakeweb}
   s.test_files = [
     "test/helper.rb",
-     "test/test_sinatra_fake_webservice.rb"
+     "test/sinatra_fake_web_service_test.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -45,14 +45,14 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+      s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_runtime_dependency(%q<sinatra>, [">= 0"])
     else
-      s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+      s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<sinatra>, [">= 0"])
     end
   else
-    s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+    s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<sinatra>, [">= 0"])
   end
 end
