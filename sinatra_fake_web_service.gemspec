@@ -5,10 +5,10 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sinatra_fake_web_service}
-  s.version = "0.9.0"
+  s.version = "0.9.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Philip MacIver"]
+  s.authors = ["Elad Meidar, modified by Philip MacIver"]
   s.date = %q{2010-05-31}
   s.description = %q{FakeWeb allows you to fake a response from a specific url, this gem intends to give developers the option to allow several responses from the same url based on parameters (ex: WSDL)}
   s.email = %q{philip@ivercore.com}
@@ -17,16 +17,13 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    ".document",
-     ".gitignore",
+    ".gitignore",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
      "lib/sinatra_fake_web_service.rb",
-     "metal/sinatra_stem.rb",
-     "sinatra.log",
-     "sinatra_fake_webservice.gemspec",
+     "sinatra_fake_web_service.gemspec",
      "test/helper.rb",
      "test/sinatra_fake_web_service_test.rb"
   ]
